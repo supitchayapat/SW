@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.controlsfx.control.textfield.TextFields;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -19,6 +18,9 @@ public class setCourseController {
     DBStudent dbStudent = new DBStudent();
     ObservableList<Subject> users;
     Map<String, String> sub = dbSubject.getIdSubject();
+    ObservableList<Subject> persubject = FXCollections.observableArrayList();
+
+    private String prere;
     @FXML
     TextField courseidsearch;
     @FXML
@@ -43,6 +45,7 @@ public class setCourseController {
         ArrayList<String> predictSubject = new ArrayList<>(sub.keySet());
         TextFields.bindAutoCompletion(courseidsearch, predictSubject);
 
+
 //        if (users.isEmpty()) {
 //            courseidsearch.setText(" ");
 //            name.setText(" ");
@@ -62,44 +65,54 @@ public class setCourseController {
                 System.out.println(40);
                 subjectsshow.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
                 tableVlewDetail.setItems(subjectsshow);
-                ObservableList<Subject> persubject  = FXCollections.observableArrayList();
-                String intString = users.get(i).getPREREQUSITE();
-                if (intString.contains("/")) {
-                    String[] orSubject = intString.split("/");
-                    for (int j = 0; i < orSubject.length; j++) {
-                        for (int k = 0; k < users.size(); k++) {
-                            if (orSubject[j].equals(users.get(k).getCOURSEID())) {
-                                persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
-                                tableVlewDetail.setItems(subjectsshow);
-
-                            }
-
-                        }
-
-                    }
-                } else if (intString.equals("+")) {
-                    String[] orSubject = intString.split("/");
-                    for (int j = 0; i < orSubject.length; j++) {
-                        for (int k = 0; k < users.size(); k++) {
-                            if (orSubject[j].equals(users.get(k).getCOURSEID())) {
-                                persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
-                                tableVlewDetail.setItems(subjectsshow);
-
-                            }
-
-                        }
-
-                    }
-
-                } else {
-                    for (int k = 0; k < users.size(); k++) {
-                        if (intString.equals(users.get(k).getCOURSEID())) {
-                            persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
-                            tableVlewDetail.setItems(subjectsshow);
-                        }
-
-                    }
-                }
+                prere = users.get(i).getPREREQUSITE();
+                System.out.println(prere);
+                break;
+//                if (intString.contains("/")) {
+//                    String[] orSubject = intString.split("/");
+//                    for (int j = 0; i < orSubject.length; j++) {
+//                        System.out.println(intString+"cld");
+//
+//                        for (int k = 0; k < users.size(); k++) {
+//                            if (orSubject[j].equals(users.get(k).getCOURSEID())) {
+//                                persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
+//                                tableVlewPre.setItems(persubject);
+//                                break;
+//
+//                            }
+//
+//                        }
+//
+//                    }
+//                } else if (intString.equals("+")) {
+//                    System.out.println(intString+"cld");
+//                    String[] orSubject = intString.split("/");
+//                    for (int j = 0; i < orSubject.length; j++) {
+//                        for (int k = 0; k < users.size(); k++) {
+//                            if (orSubject[j].equals(users.get(k).getCOURSEID())) {
+//                                persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
+//                                tableVlewPre.setItems(persubject);
+//                                break;
+//
+//                            }
+//
+//                        }
+//
+//
+//                    }
+//
+//                } else {
+//                    for (int k = 0; k < users.size(); k++) {
+//                        System.out.println(intString+"cld");
+//
+//                        if (intString.equals(users.get(k).getCOURSEID())) {
+//                            persubject.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
+//                            tableVlewPre.setItems(persubject);
+//                            break;
+//                        }
+//
+//                    }
+//                }
             }
 
 
@@ -114,8 +127,49 @@ public class setCourseController {
 
 //        }
         }
+        String[] arraySubject ;
+        if (prere.contains("-")){
+            System.out.println("ss");
+            arraySubject = prere.split("-");
+            for (int i = 0 ; i < arraySubject.length ; i++){
+                for (int j = 0; j < users.size();j++){
+                    if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
+                        persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
+                    }
+
+                    }
+            }
+
+        }else if (persubject.contains("/")){
+            System.out.println("ss");
+
+            arraySubject = prere.split("-");
+            for (int i = 0 ; i < arraySubject.length ; i++){
+                for (int j = 0; j < users.size();j++){
+                    if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
+                        persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
+                    }
+
+                }
+            }
+
+        }else if (!(persubject.contains("/") &&(persubject.contains("-")))){
+            System.out.println("ss");
+
+            for (int j = 0; j < users.size();j++){
+                if (persubject.equals(users.get(j).getCOURSEID())) {
+                    persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
+                }
+
+            }
+        }
+        System.out.println(persubject.toString());
+        tableVlewPre.setItems(persubject);
+        }
+
+
     }
-}
+
 
 //
 //    }
