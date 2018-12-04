@@ -11,6 +11,13 @@ public class Subject {
     private int CREDIT;
 
     public Subject(){ }
+    public Subject(String COURSEID,String NAMECOURSE,int SEM , int YEAR){
+        this.COURSEID = COURSEID;
+        this.NAMECOURSE = NAMECOURSE;
+        this.SEM = SEM;
+        this.YEAR = YEAR;
+
+    }
 
     public Subject(String COURSEID, String NAMECOURSE, String PREREQUSITE, int  PASSSTATUS, int YEAR, int SEM, String COLOR,int CREDIT) {
         this.COURSEID = COURSEID;

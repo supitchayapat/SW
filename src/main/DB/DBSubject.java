@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class DBSubject {
     private Connection connection = null;
@@ -103,4 +105,89 @@ public class DBSubject {
             e.printStackTrace();
         }
     }
-}
+
+    public Map getPreSubject() {
+        Map<String, String> preDB = new LinkedHashMap<String, String>();
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection(url);
+            if (connection != null) {
+                String query = "select PREREQUSITE from  subject ";
+                Statement statement = connection.createStatement();
+                ResultSet rsquery = statement.executeQuery(query);
+                while (rsquery.next()) {
+                    String course_id = rsquery.getString(1);
+                    String pre_id = rsquery.getString(1);
+                    preDB.put(course_id, pre_id);
+                }
+
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return  preDB;
+
+    }
+    public Map getIdSubject() {
+        Map<String, String> subjectDB = new LinkedHashMap<String, String>();
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection(url);
+            if (connection != null) {
+                String query = "select COURSEID from  subject ";
+                Statement statement = connection.createStatement();
+                ResultSet rsquery = statement.executeQuery(query);
+                while (rsquery.next()) {
+                    String course_id = rsquery.getString(1);
+                    String pre_id = rsquery.getString(1);
+                    subjectDB.put(course_id, pre_id);
+                }
+
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return  subjectDB;
+
+    }
+//    public String getData(String courseid) {
+//        Connection c = null;
+//        Statement stmt = null;
+//        String ans = "";
+//        try {
+//
+//            Class.forName("org.sqlite.JDBC");
+//            c = DriverManager.getConnection("jdbc:sqlite:subjectdb.db");
+//            c.setAutoCommit(false);
+//            stmt = c.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM SUBJECT WHERE COURSEID LIKE '%" + courseid + "%'");
+//            while (rs.next()) {
+//                String id = rs.getString("courseid");
+//                String name = rs.getString("name");
+//                String pre = rs.getString("prereq");
+//                int pass = rs.getInt("pass");
+//                String color = rs.getString("color");
+//                int year = rs.getInt("year");
+//                int sem = rs.getInt("sem");
+//                ans = "Course ID: " + id + '\n' +
+//                        "Subject Name: " + name + '\n' +
+//                        "Pre Req: " + pre + '\n' +
+//                        "Year: " + year + '\n' +
+//                        "Semester: " + sem + '\n' +
+//                        "Pass: " + pass + '\n' +
+//                        "Color: " + color + '\n';
+//            }
+//            rs.close();
+//            stmt.close();
+//            c.close();
+//        } catch (Exception e) {
+//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+//            System.exit(0);
+//        }
+//        return ans;
+    }
+
+
+
+
+

@@ -65,7 +65,7 @@
                                 </HBox>
                                 <VBox>
                                     <children>
-                                        <Label fx:id="lbl_acad_prog" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY" wrapText="true" />
+                                        <Label fx:id="lbl_acad_prog" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" wrapText="true" />
                                         <Label text="Academic Program">
                                             <font>
                                                 <Font name="System Bold" size="11.0" />
@@ -221,13 +221,13 @@
                                                         <Insets />
                                                     </VBox.margin>
                                                     <children>
-                                                        <VBox prefHeight="232.0" prefWidth="209.0" spacing="10.0" style="-fx-border-color: #fff;">
+                                                        <VBox prefHeight="77.0" prefWidth="205.0" spacing="10.0" style="-fx-border-color: #fff;">
                                                             <children>
                                                                 <VBox prefHeight="109.0" prefWidth="297.0">
                                                                     <children>
-                                                                        <Label text="Course Shifting">
+                                                                        <Label text="course">
                                                                             <font>
-                                                                                <Font size="21.0" />
+                                                                                <Font size="47.0" />
                                                                             </font>
                                                                             <graphic>
                                                                                 <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
@@ -247,7 +247,7 @@
                                                                         </Label>
                                                                     </children>
                                                                 </VBox>
-                                                                <Button id="ShowCoursebtn" fx:id="showcourse" layoutX="21.0" layoutY="140.0" maxWidth="1.7976931348623157E308" onAction="#btnShowcourse" prefHeight="40.0" prefWidth="315.0" style="-fx-border-color: #fff;" text="Show Student Course History" VBox.vgrow="ALWAYS">
+                                                                <Button id="ShowCoursebtn" fx:id="showcourse" layoutX="21.0" layoutY="140.0" maxWidth="1.7976931348623157E308" onAction="#btnShowcourse" prefHeight="40.0" prefWidth="315.0" style="-fx-border-color: #fff;" text="Check Course" VBox.vgrow="ALWAYS">
                                                                     <styleClass>
                                                                         <String fx:value="label" />
                                                                         <String fx:value="metro-base-color" />

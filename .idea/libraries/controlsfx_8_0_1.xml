@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="controlsfx-8.0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../libpo/controlsfx-8.0.1.jar (4)/controlsfx-8.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../libpo/controlsfx-8.0.1.jar.zip!/" />
+      <root url="jar://$PROJECT_DIR$/../libpo/controlsfx-8.0.1.jar (3)/controlsfx-8.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

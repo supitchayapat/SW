@@ -103,12 +103,12 @@
                         <Font name="Arial" size="28.8" />
                     </font>
                 </Label>
-              <Button fx:id="register" layoutX="104.0" layoutY="369.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Pre Regis" textFill="#eeecec">
+              <Button fx:id="register" layoutX="79.0" layoutY="368.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #708090;" text="Check Course" textFill="#eeecec">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="profile" layoutX="417.0" layoutY="598.0" onAction="#profileButton" mnemonicParsing="false"  prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
+            <Button fx:id="profile" layoutX="417.0" layoutY="598.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
                <font>
                   <Font size="27.0" />
                </font>

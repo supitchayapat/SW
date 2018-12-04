@@ -67,9 +67,8 @@ public class StudentProfileController {
         Button b = (Button) actionEvent.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../resources/StudentProfile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/setcourse.fxml"));
             stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
-            StudentProfileController stdProfile = loader.getController();
             stage.show();
         } catch (IOException e1) {
             e1.printStackTrace();
