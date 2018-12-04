@@ -12,25 +12,25 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
+<AnchorPane prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classroot.LoginController">
     <children>
         <AnchorPane prefHeight="36.0" prefWidth="1024.0">
-            <children>
-                <MenuBar layoutX="7.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="File">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#setPreRegiserCourse" text="Close" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#profileButton" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-            </children>
+            <!--<children>-->
+                <!--<MenuBar layoutX="7.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">-->
+                    <!--<menus>-->
+                        <!--<Menu mnemonicParsing="false" text="File">-->
+                            <!--<items>-->
+                                <!--<MenuItem mnemonicParsing="false" onAction="#setPreRegiserCourse" text="Close" />-->
+                            <!--</items>-->
+                        <!--</Menu>-->
+                        <!--<Menu mnemonicParsing="false" text="Help">-->
+                            <!--<items>-->
+                                <!--<MenuItem mnemonicParsing="false" onAction="#profileButton" text="About" />-->
+                            <!--</items>-->
+                        <!--</Menu>-->
+                    <!--</menus>-->
+                <!--</MenuBar>-->
+            <!--</children>-->
         </AnchorPane>
 
         <!--<Pane fx:id="wrongPane" layoutX="220.0" layoutY="311.0" prefHeight="1000.0" prefWidth="1000.0"-->
@@ -96,7 +96,7 @@
             <children>
                 <ImageView fitHeight="618.0" fitWidth="699.0" layoutX="197.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../picture/1200px-KU_SubLogo.png" />
+                        <Image url="@/picture/1200px-KU_SubLogo.png" />
                     </image>
                 </ImageView>
                 <Label alignment="CENTER" layoutX="385.0" layoutY="436.0" prefHeight="33.0" prefWidth="241.0" text="Application" visible="false">
@@ -104,17 +104,17 @@
                         <Font name="Arial" size="28.8" />
                     </font>
                 </Label>
-            <ImageView fitHeight="110.0" fitWidth="129.0" layoutX="103.0" layoutY="787.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="76.0" fitWidth="90.0" layoutX="104.0" layoutY="744.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/search-14-x.png" />
+                  <Image url="@/picture/search-14-x.png" />
                </image>
             </ImageView>
-            <TextField layoutX="219.0" layoutY="797.0" prefHeight="100.0" prefWidth="508.0" promptText="ID" style="-fx-background-color: #F0F8FF;">
+            <TextField fx:id="textFieldid" layoutX="222.0" layoutY="754.0" prefHeight="66.0" prefWidth="508.0" promptText="ID" style="-fx-background-color: #F0F8FF;">
                <font>
                   <Font size="46.0" />
                </font>
             </TextField>
-            <Button fx:id="login" layoutX="740.0" layoutY="797.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="158.0" style="-fx-background-color: #32CD32;" text="Login" onAction="#btnLogin" />
+            <Button fx:id="login" layoutX="740.0" layoutY="749.0" mnemonicParsing="false" onAction="#btnLogin" prefHeight="112.0" prefWidth="158.0" style="-fx-background-color: #32CD32;" text="Login" />
                 <!--<TextField fx:id="loginTextfeild" layoutX="367.0" layoutY="534.0" onAction="#loginHandle"-->
                 <!--prefHeight="40.0" prefWidth="300.0" promptText="Username" styleClass="textFieldKuappPage">-->
                 <!--<font>-->

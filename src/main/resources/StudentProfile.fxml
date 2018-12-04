@@ -4,10 +4,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -18,13 +15,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #3CB371;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classroot.StudentProfileController">
+<VBox prefHeight="1000.0" prefWidth="1000.0" style="-fx-background-color: #3CB371;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classroot.StudentProfileController">
     <children>
         <VBox prefHeight="235.0" prefWidth="1000.0" style="-fx-background-color: #90EE90;" styleClass="metro-title-1">
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="946.0" style="-fx-background-color: #90EE90;">
                     <children>
-                        <Label contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="975.0" style="-fx-background-color: #90EE90;" stylesheets="@metro-ui-table.css" text="Student Information" textAlignment="CENTER" textFill="WHITE" wrapText="true" HBox.hgrow="ALWAYS">
+                        <Label contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="975.0" style="-fx-background-color: #90EE90;" stylesheets="@/css/metro-ui-table.css" text="Student Information" textAlignment="CENTER" textFill="WHITE" wrapText="true" HBox.hgrow="ALWAYS">
                             <font>
                                 <Font size="50.0" />
                             </font>
@@ -55,7 +52,7 @@
                                     <children>
                                         <ImageView fx:id="img_icon" fitHeight="142.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@picture/default_image_blue.png" />
+                                                <Image url="@../picture/profile-icon-29.png" />
                                             </image>
                                             <HBox.margin>
                                                 <Insets right="10.0" />
@@ -78,7 +75,7 @@
                                 </VBox>
                                 <VBox prefHeight="738.0" prefWidth="175.0" spacing="10.0">
                                     <children>
-                                        <Button fx:id="btn_view_profile" prefHeight="65.0" prefWidth="304.0" style="-fx-border-color: #fff;" text=" Profile              ">
+                                        <Button fx:id="btn_view_profile" prefHeight="65.0" prefWidth="304.0" style="-fx-background-color: #90EE90;" text=" Profile              ">
                                             <styleClass>
                                                 <String fx:value="label" />
                                                 <String fx:value="metro-base-color" />
@@ -92,26 +89,7 @@
                                             <graphic>
                                                 <ImageView fitHeight="33.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
-                                                        <Image url="@picture/Profile_64px.png" />
-                                                    </image>
-                                                </ImageView>
-                                            </graphic>
-                                        </Button>
-                                        <Button fx:id="btn_view_history" layoutX="10.0" layoutY="283.0" prefHeight="65.0" prefWidth="304.0" style="-fx-border-color: #fff;" text=" History">
-                                            <styleClass>
-                                                <String fx:value="label" />
-                                                <String fx:value="metro-base-color" />
-                                            </styleClass>
-                                            <font>
-                                                <Font size="18.0" />
-                                            </font>
-                                            <padding>
-                                                <Insets bottom="10.0" left="-50.0" top="10.0" />
-                                            </padding>
-                                            <graphic>
-                                                <ImageView fitHeight="33.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                                                    <image>
-                                                        <Image url="@picture/Historical_32px.png" />
+                                                        <Image url="@../picture/default_image.png" />
                                                     </image>
                                                 </ImageView>
                                             </graphic>
@@ -204,14 +182,14 @@
                                                                 <Font name="System Bold" size="18.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label id="gendarLabel" prefHeight="240.0" prefWidth="451.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                                        <Label id="campusLabel" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                                        <Label id="YearLevelLabel" prefHeight="149.0" prefWidth="481.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                                        <Label fx:id="gendarLabel" prefHeight="240.0" prefWidth="451.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                        <Label fx:id="campusLabel" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                                        <Label fx:id="YearLevelLabel" prefHeight="149.0" prefWidth="481.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
                                                         <Label GridPane.columnIndex="2" />
-                                                        <Label id="StudentLabel" prefHeight="68.0" prefWidth="303.0" GridPane.columnIndex="2" />
-                                                        <Label id="lasrnameLabel" prefHeight="162.0" prefWidth="442.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                                        <Label id="firstnameLabel" prefHeight="199.0" prefWidth="347.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                        <Label id="middleLabel" prefHeight="196.0" prefWidth="323.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                        <Label fx:id="StudentLabel" prefHeight="68.0" prefWidth="303.0" GridPane.columnIndex="2" />
+                                                        <Label fx:id="lasrnameLabel" prefHeight="162.0" prefWidth="442.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="firstnameLabel" prefHeight="199.0" prefWidth="347.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                        <Label fx:id="middleLabel" prefHeight="196.0" prefWidth="323.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                                                     </children>
                                                     <VBox.margin>
                                                         <Insets left="20.0" right="20.0" top="5.0" />
@@ -254,7 +232,7 @@
                                                                             <graphic>
                                                                                 <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                                                                     <image>
-                                                                                        <Image url="@picture/tip_50.png" />
+                                                                                        <Image url="@../picture/Curriculum_80px.png" />
                                                                                     </image>
                                                                                 </ImageView>
                                                                             </graphic>
@@ -269,22 +247,7 @@
                                                                         </Label>
                                                                     </children>
                                                                 </VBox>
-                                                                <Button fx:id="btn_shift_course" maxWidth="1.7976931348623157E308" prefHeight="41.0" prefWidth="304.0" style="-fx-border-color: #fff;" text="  Shift Course" VBox.vgrow="ALWAYS">
-                                                                    <styleClass>
-                                                                        <String fx:value="label" />
-                                                                        <String fx:value="metro-base-color" />
-                                                                    </styleClass>
-                                                                    <font>
-                                                                        <Font size="18.0" />
-                                                                    </font>
-                                                                    <VBox.margin>
-                                                                        <Insets />
-                                                                    </VBox.margin>
-                                                                    <padding>
-                                                                        <Insets bottom="10.0" top="10.0" />
-                                                                    </padding>
-                                                                </Button>
-                                                                <Button fx:id="btn_show_course_history" layoutX="21.0" layoutY="140.0" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="315.0" style="-fx-border-color: #fff;" text="Show Student Course History" VBox.vgrow="ALWAYS">
+                                                                <Button id="ShowCoursebtn" fx:id="showcourse" layoutX="21.0" layoutY="140.0" maxWidth="1.7976931348623157E308" onAction="#btnShowcourse" prefHeight="40.0" prefWidth="315.0" style="-fx-border-color: #fff;" text="Show Student Course History" VBox.vgrow="ALWAYS">
                                                                     <styleClass>
                                                                         <String fx:value="label" />
                                                                         <String fx:value="metro-base-color" />
@@ -298,7 +261,7 @@
                                                                     <graphic>
                                                                         <ImageView fitHeight="22.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                                                             <image>
-                                                                                <Image url="@picture/Historical_32px.png" />
+                                                                                <Image url="@../picture/icons8_Check_50px_1.png" />
                                                                             </image>
                                                                         </ImageView>
                                                                     </graphic>

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane style="-fx-background-color: #ffffff; -fx-border-color: #0B0B14;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
+<Pane style="-fx-background-color: #90EE90; -fx-border-color: #90EE90;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classroot.MainController">
     <children>
-        <AnchorPane prefHeight="36.0" prefWidth="1024.0">
+        <AnchorPane prefHeight="36.0" prefWidth="1024.0" style="-fx-background-color: #90EE90;">
             <children>
                 <MenuBar layoutX="7.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <menus>
@@ -24,7 +24,7 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                             <items>
-                                <MenuItem mnemonicParsing="false" onAction="#profileButton" text="About" />
+                                <MenuItem mnemonicParsing="false" text="About" />
                             </items>
                         </Menu>
                     </menus>
@@ -103,32 +103,32 @@
                         <Font name="Arial" size="28.8" />
                     </font>
                 </Label>
-              <Button fx:id="register" layoutX="131.0" layoutY="369.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Pre Regis" textFill="#eeecec">
+              <Button fx:id="register" layoutX="104.0" layoutY="369.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Pre Regis" textFill="#eeecec">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="profile" layoutX="421.0" layoutY="369.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
+            <Button fx:id="profile" layoutX="417.0" layoutY="598.0" onAction="#profileButton" mnemonicParsing="false"  prefHeight="60.0" prefWidth="166.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
                <font>
                   <Font size="27.0" />
                </font>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="164.0" layoutX="126.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="189.0" fitWidth="154.0" layoutX="97.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/Curriculum_80px.png" />
+                  <Image url="@/picture/Curriculum_80px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="404.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="189.0" fitWidth="213.0" layoutX="417.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/profile-icon-29.png" />
+                  <Image url="@/picture/profile-icon-29.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="729.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="189.0" fitWidth="154.0" layoutX="773.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../picture/jsdf.png" />
+                  <Image url="@/picture/jsdf.png" />
                </image>
             </ImageView>
-            <Button fx:id="transcripbtn" layoutX="705.0" layoutY="369.0" mnemonicParsing="false" onAction="#setbtnTranscript" prefHeight="60.0" prefWidth="174.0" style="-fx-background-color: #708090;" text="Transcript" textFill="#fff7f7">
+            <Button fx:id="transcripbtn" layoutX="771.0" layoutY="369.0" mnemonicParsing="false" onAction="#setbtnTranscript" prefHeight="52.0" prefWidth="166.0" style="-fx-background-color: #708090;" text="Transcript" textFill="#fff7f7">
                <font>
                   <Font size="27.0" />
                </font>

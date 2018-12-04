@@ -50,7 +50,7 @@
             <center>
                 <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                     <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #90EE90;">
                             <children>
                                 <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseAddNewButtonClick" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0B9CE3; -fx-text-fill: white;" text="AddNew" AnchorPane.leftAnchor="14.0" />
                                 <Button layoutX="112.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseEditButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Edit" textFill="WHITE" />
@@ -70,6 +70,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
@@ -92,7 +93,9 @@
                                         </Text>
                                         <TextField fx:id="courseTFCredit" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="prerequsite" GridPane.rowIndex="3" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="comborequite" onAction="#CBprerequsite" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Level" GridPane.rowIndex="4" />
+                              <ComboBox fx:id="comboLevel" onAction="#CBcomboLevel" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     </children>
                                 </GridPane>
                                 <Text layoutX="16.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course Informatin" AnchorPane.bottomAnchor="444.7333984375" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="197.095703125" AnchorPane.topAnchor="120.6552734375">
@@ -105,7 +108,7 @@
                                 <Separator layoutX="18.0" layoutY="878.0" prefHeight="4.0" prefWidth="323.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="7.0" />
                             </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #90EE90;">
                             <children>
                                 <TextField fx:id="courseTFSearch" layoutX="548.0" layoutY="14.0" promptText="Course Code" AnchorPane.rightAnchor="127.0" />
                                 <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#setCourseSearchButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #09B28C;" text="Search" textFill="WHITE" AnchorPane.rightAnchor="23.0" />
