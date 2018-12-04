@@ -91,13 +91,8 @@
         <!--</ImageView>-->
         <!--</children>-->
         <!--</Pane>-->
-        <Pane layoutY="26.0" prefHeight="756.0" prefWidth="1024.0" style="-fx-background-color: #3CB371;">
+        <Pane layoutY="26.0" prefHeight="756.0" prefWidth="1024.0" style="-fx-background-color: #90EE90;">
             <children>
-                <ImageView fitHeight="703.0" fitWidth="978.0" layoutX="142.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@200px-KU_SubLogo.png" />
-                    </image>
-                </ImageView>
                 <Label alignment="CENTER" layoutX="276.0" layoutY="346.0" prefHeight="71.0" prefWidth="459.0" text="Kasetsart University" textAlignment="CENTER" visible="false">
                     <font>
                         <Font name="Arial Bold" size="40.0" />
@@ -108,12 +103,32 @@
                         <Font name="Arial" size="28.8" />
                     </font>
                 </Label>
-              <Button fx:id="cometoMain" layoutX="72.0" layoutY="690.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Pre Regis" textFill="#eeecec">
+              <Button fx:id="register" layoutX="131.0" layoutY="369.0" mnemonicParsing="false" onAction="#setPreRegiserCourse" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Pre Regis" textFill="#eeecec">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="cometoMain1" layoutX="812.0" layoutY="682.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
+            <Button fx:id="profile" layoutX="421.0" layoutY="369.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="60.0" prefWidth="140.0" style="-fx-background-color: #708090;" text="Profile" textFill="#fff7f7">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="164.0" layoutX="126.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/Curriculum_80px.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="135.0" fitWidth="200.0" layoutX="404.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/profile-icon-29.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="729.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../picture/jsdf.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="transcripbtn" layoutX="705.0" layoutY="369.0" mnemonicParsing="false" onAction="#setbtnTranscript" prefHeight="60.0" prefWidth="174.0" style="-fx-background-color: #708090;" text="Transcript" textFill="#fff7f7">
                <font>
                   <Font size="27.0" />
                </font>
