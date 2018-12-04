@@ -1,0 +1,155 @@
+{
+  "01418116": {
+    "NAMECOURSE": "ComPro",
+    "PREREQUSITE": "01418114",
+    "PASSSTATUS": 0,
+    "YEAR": 1,
+    "SEM": 2,
+    "COLOR": "Red",
+    "CREDIT": 3
+  },
+  "01418132": {
+    "NAMECOURSE": "Fund Com",
+    "PREREQUSITE": null,
+    "PASSSTATUS": 0,
+    "YEAR": 2,
+    "SEM": 1,
+    "COLOR": "Red",
+    "CREDIT": 4
+  },
+  "01418231": {
+    "NAMECOURSE": "Data Struc",
+    "PREREQUSITE": "01418116",
+    "PASSSTATUS": 0,
+    "YEAR": 2,
+    "SEM": 1,
+    "COLOR": "Blue",
+    "CREDIT": 3
+  },
+  "01418221": {
+    "NAMECOURSE": "Database",
+    "PREREQUSITE": "01418116",
+    "PASSSTATUS": 0,
+    "YEAR": 2,
+    "SEM": 1,
+    "COLOR": "Red",
+    "CREDIT": 3
+  },
+  "01418321": {
+    "NAMECOURSE": "SA",
+    "PREREQUSITE": "01418221",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 1,
+    "COLOR": "Green",
+    "CREDIT": 3
+  },
+  "01418351": {
+    "NAMECOURSE": "Network",
+    "PREREQUSITE": "01418116",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 1,
+    "COLOR": "Red",
+    "CREDIT": 3
+  },
+  "01418333": {
+    "NAMECOURSE": "Automata",
+    "PREREQUSITE": "01418132",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 2,
+    "COLOR": "Red",
+    "CREDIT": 3
+  },
+  "01418497": {
+    "NAMECOURSE": "Seminar",
+    "PREREQUSITE": "01418232/01418221/01418216",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 2,
+    "COLOR": "Blue",
+    "CREDIT": 1
+  },
+  "01418343": {
+    "NAMECOURSE": "IP",
+    "PREREQUSITE": null,
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 2,
+    "COLOR": "Green",
+    "CREDIT": 3
+  },
+  "01418390": {
+    "NAMECOURSE": "Pre-Project",
+    "PREREQUSITE": "01418321",
+    "PASSSTATUS": 0,
+    "YEAR": 4,
+    "SEM": 1,
+    "COLOR": "Blue",
+    "CREDIT": 1
+  },
+  "01418499": {
+    "NAMECOURSE": "Coop Ed.",
+    "PREREQUSITE": "01418399",
+    "PASSSTATUS": 0,
+    "YEAR": 4,
+    "SEM": 2,
+    "COLOR": "Green",
+    "CREDIT": 3
+  },
+  "01418490": {
+    "NAMECOURSE": "Project",
+    "PREREQUSITE": "01418390",
+    "PASSSTATUS": 0,
+    "YEAR": 4,
+    "SEM": 2,
+    "COLOR": "Green",
+    "CREDIT": 3
+  },
+  "01418232": {
+    "NAMECOURSE": "Algor",
+    "PREREQUSITE": "01418231",
+    "PASSSTATUS": 0,
+    "YEAR": 2,
+    "SEM": 2,
+    "COLOR": "Green",
+    "CREDIT": 3
+  },
+  "01418216": {
+    "NAMECOURSE": "PPL",
+    "PREREQUSITE": "01418116",
+    "PASSSTATUS": 0,
+    "YEAR": 2,
+    "SEM": 2,
+    "COLOR": "Blue",
+    "CREDIT": 3
+  },
+  "01418399": {
+    "NAMECOURSE": "Pre Coop",
+    "PREREQUSITE": "01418321",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 2,
+    "COLOR": "Blue",
+    "CREDIT": 3
+  },
+  "01418331": {
+    "NAMECOURSE": "Assembly",
+    "PREREQUSITE": "01418131+01418116",
+    "PASSSTATUS": 0,
+    "YEAR": 3,
+    "SEM": 1,
+    "COLOR": "Blue",
+    "CREDIT": 4
+  },
+  "01418114": {
+    "NAMECOURSE": "Intro",
+    "PREREQUSITE": null,
+    "PASSSTATUS": 0,
+    "YEAR": 1,
+    "SEM": 1,
+    "COLOR": "Blue",
+    "CREDIT": 1
+  }
+}

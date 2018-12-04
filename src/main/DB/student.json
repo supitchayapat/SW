@@ -1,0 +1,20 @@
+{
+  "5810451098": {
+    "student_name": "supitchaya",
+    "sem": "NULL",
+    "year": 4,
+    "gendar": 0,
+    "lastname": "sailabat",
+    "middlename": "pat",
+    "Campus": "bangkan"
+  },
+  "5810450261": {
+    "student_name": "dusit",
+    "sem": "NULL",
+    "year": 4,
+    "gendar": 1,
+    "lastname": "siri",
+    "middlename": "sue",
+    "Campus": "bangkan"
+  }
+}
