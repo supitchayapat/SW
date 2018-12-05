@@ -18,7 +18,7 @@ public class setCourseController {
     DBStudent dbStudent = new DBStudent();
     ObservableList<Subject> users;
     Map<String, String> sub = dbSubject.getIdSubject();
-    ObservableList<Subject> persubject = FXCollections.observableArrayList();
+    private boolean validateSubject = false;
 
     private String prere;
     @FXML
@@ -26,9 +26,7 @@ public class setCourseController {
     @FXML
     Button Ssearchcourse;
     @FXML
-    TableView tableVlewDetail;
-    @FXML
-    TableView tableVlewPre;
+    TableView tableVlewDetail,tableVlewPre;
     @FXML
     TableColumn course_id, course_id1, name, name1, semeter, semeter1, Year, Year1;
     @FXML
@@ -56,17 +54,13 @@ public class setCourseController {
 
 
     public void btnSearch(ActionEvent actionEvent) {
-
-//        tableVlewDetail.setItems(users);
         ObservableList<Subject> subjectsshow = FXCollections.observableArrayList();
         for (int i = 0; i < users.size(); i++) {
-            System.out.println(courseidsearch.getText());
             if (users.get(i).getCOURSEID().equals(courseidsearch.getText())) {
                 System.out.println(40);
                 subjectsshow.add(new Subject(users.get(i).getCOURSEID(), users.get(i).getNAMECOURSE(), users.get(i).getSEM(), users.get(i).getYEAR()));
                 tableVlewDetail.setItems(subjectsshow);
                 prere = users.get(i).getPREREQUSITE();
-                System.out.println(prere);
                 break;
 //                if (intString.contains("/")) {
 //                    String[] orSubject = intString.split("/");
@@ -127,49 +121,62 @@ public class setCourseController {
 
 //        }
         }
+        String statusPass;
+
+        ObservableList<Subject> persubject = FXCollections.observableArrayList();
         String[] arraySubject ;
         if (prere.contains("-")){
-            System.out.println("ss");
             arraySubject = prere.split("-");
             for (int i = 0 ; i < arraySubject.length ; i++){
-                for (int j = 0; j < users.size();j++){
+                for (int j = 0; j < users.size(); j++){
                     if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
+                        statusPass = users.get(i).getPREREQUSITE();
+                        if (statusPass.equals("1")){
+                            validateSubject = true;
+                        }else if (statusPass.equals("0")){
+                            validateSubject = false;
+                        }
                         persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
                     }
-
-                    }
-            }
-
-        }else if (persubject.contains("/")){
-            System.out.println("ss");
-
-            arraySubject = prere.split("-");
-            for (int i = 0 ; i < arraySubject.length ; i++){
-                for (int j = 0; j < users.size();j++){
-                    if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
-                        persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
-                    }
-
                 }
             }
 
-        }else if (!(persubject.contains("/") &&(persubject.contains("-")))){
-            System.out.println("ss");
+        }else if (prere.contains("/")){
+            arraySubject = prere.split("/");
+            for (int i = 0 ; i < arraySubject.length ; i++){
+                for (int j = 0; j < users.size();j++){
+                    if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
+                        statusPass = users.get(i).getPREREQUSITE();
+                        if (statusPass.equals("1")){
+                            validateSubject = true;
+                        }
+                        persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
+                    }
+                }
+            }
+
+        }else if (!(prere.contains("/") &&(prere.contains("-")))){
 
             for (int j = 0; j < users.size();j++){
-                if (persubject.equals(users.get(j).getCOURSEID())) {
+                if (prere.equals(users.get(j).getCOURSEID())) {
+                    statusPass = users.get(j).getPREREQUSITE();
+                    if (statusPass.equals("1")){
+                        validateSubject = true;
+                    }
                     persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
                 }
-
             }
         }
-        System.out.println(persubject.toString());
         tableVlewPre.setItems(persubject);
+        if (validateSubject){
+            System.out.println("print");
+            showStatus.setStyle("-fx-border-color: #00ff00");
+            showBeacuse.setText("Course registration is allowed.");
+            showBeacuse.setStyle("-fx-border-color: #ff0000");
         }
 
-
     }
-
+        }
 
 //
 //    }

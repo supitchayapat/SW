@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -106,28 +107,31 @@ public class DBSubject {
         }
     }
 
-    public Map getPreSubject() {
-        Map<String, String> preDB = new LinkedHashMap<String, String>();
+    public ObservableList<Subject> getPreSubject(String preid) {
+        ObservableList<Subject> preDB = FXCollections.observableArrayList();
         try {
             Class.forName("org.sqlite.JDBC");
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
-                String query = "select PREREQUSITE from  subject ";
+                String query = "select * from  subject where PREREQUISITE == \'" + preid + '\"';
                 Statement statement = connection.createStatement();
                 ResultSet rsquery = statement.executeQuery(query);
                 while (rsquery.next()) {
-                    String course_id = rsquery.getString(1);
-                    String pre_id = rsquery.getString(1);
-                    preDB.put(course_id, pre_id);
+                    String courseId = rsquery.getString(1);
+                    String namecourse = rsquery.getString(2);
+                    int year = rsquery.getInt(5);
+                    int semeter = rsquery.getInt(6);
+                    preDB.add(new Subject(courseId, namecourse, year, semeter));
                 }
 
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        return  preDB;
+        return preDB;
 
     }
+
     public Map getIdSubject() {
         Map<String, String> subjectDB = new LinkedHashMap<String, String>();
         try {
@@ -147,7 +151,7 @@ public class DBSubject {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-        return  subjectDB;
+        return subjectDB;
 
     }
 //    public String getData(String courseid) {
@@ -185,9 +189,87 @@ public class DBSubject {
 //            System.exit(0);
 //        }
 //        return ans;
+
+    public static ArrayList checkPreReqSubject(String prereq) {
+        ArrayList<String> pre = new ArrayList<String>();
+        if (prereq.contains("/")) {
+            String[] hold = prereq.split("/");
+            String[] hold1 = hold[0].split("-");
+            for (int i = 0; i < hold1.length; i++) {
+                pre.add(hold1[i]);
+            }
+            pre.add("/");
+            String[] hold2 = hold[1].split(",");
+            for (int j = 0; j < hold2.length; j++) {
+                pre.add(hold2[j]);
+            }
+            pre.add("3");
+        } else {
+            if (prereq.contains("/")) {
+                String[] hold = prereq.split("/");
+                for (int i = 0; i < hold.length; i++) {
+                    pre.add(hold[i]);
+                }
+                pre.add("1");
+            } else if (prereq.contains("-")) {
+                String[] hold = prereq.split("-");
+                for (int i = 0; i < hold.length; i++) {
+                    pre.add(hold[i]);
+                }
+                pre.add("2");
+            } else {
+                pre.add(prereq);
+                pre.add("4");
+            }
+        }
+        return pre;
+    }
+
+    public Integer cHeckPass(String courseid) {
+//        Connection c = null;
+//        Statement stmt = null;
+        int ans = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection(url);
+            if (connection != null) {
+                String query = "select COURSEID  from  subject == \'" + courseid + '\"';
+                Statement statement = connection.createStatement();
+                ResultSet rsquery = statement.executeQuery(query);
+                while (rsquery.next()) {
+                    int pass = rsquery.getInt("PASSSTATUS");
+                    ans = pass;
+
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ans;
+    }
+    public void updatePass(String courseid, int pass) {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            Connection connection = DriverManager.getConnection(url);
+            connection.setAutoCommit(false);
+            if (connection != null) {
+            String sql = "UPDATE SUBJECT set PASSSTATUS=\'" + pass + "\' WHERE COURSEID=\'" + courseid + "\'";
+
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(sql);
+                connection.commit();
+
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
 
-
+}
 

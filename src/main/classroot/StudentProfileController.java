@@ -4,14 +4,9 @@ import DB.DBStudent;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class StudentProfileController {
     @FXML
@@ -66,12 +61,12 @@ public class StudentProfileController {
     public void btnShowcourse(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/setcourse.fxml"));
-            stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/setcourse.fxml"));
+//            stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
             stage.show();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
+//        } catch (IOException e1) {
+//            e1.printStackTrace();
+//        }
     }
 }

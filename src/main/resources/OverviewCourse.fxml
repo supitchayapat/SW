@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            xmlns="http://javafx.com/javafx"
-            fx:controller="OverviewCourseController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane focusTraversable="true" prefHeight="900.0" prefWidth="1000.0" style="-fx-background-color: #90EE90;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="classroot.OverviewCourseController">
+   <children>
+      <ImageView fitHeight="235.0" fitWidth="260.0" layoutX="86.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../picture/Numbers_96px.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="300.0" layoutY="224.0" prefHeight="438.0" prefWidth="678.0" style="-fx-background-color: #FFFFE0;">
+        <columns>
+          <TableColumn prefWidth="103.0" text="COURSEID" />
+          <TableColumn text="NAME" />
+            <TableColumn prefWidth="157.0" text="PRE-COUSE" />
+            <TableColumn minWidth="0.0" prefWidth="78.0" text="YEAR" />
+            <TableColumn prefWidth="53.0" text="SEM" />
+            <TableColumn prefWidth="120.0" text="COLOR" />
+            <TableColumn prefWidth="85.0" text="PASS" />
+        </columns>
+      </TableView>
+      <Button fx:id="nopassbtn" layoutX="145.0" layoutY="627.0" mnemonicParsing="false" onAction="#nopassBtn" prefHeight="35.0" prefWidth="117.0" style="-fx-background-color: #FFFFE0;" text="NOT PASS" />
+      <Button fx:id="pass" layoutX="14.0" layoutY="627.0" mnemonicParsing="false" onAction="#paassBtn" prefHeight="35.0" prefWidth="117.0" style="-fx-background-color: #FFFFE0;" text="PASS" />
+      <Label layoutX="521.0" layoutY="128.0" prefHeight="74.0" prefWidth="415.0" text="COURSE" textFill="#9eb04f">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

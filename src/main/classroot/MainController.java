@@ -43,7 +43,7 @@ public class MainController {
     public void setPreRegiserCourse(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("setcourse.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/setcourse.fxml"));
         try {
             stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
             stage.show();
@@ -53,6 +53,16 @@ public class MainController {
     }
 
     public void setbtnTranscript(ActionEvent actionEvent) {
+        Button b = (Button) actionEvent.getSource();
+        Stage stage = (Stage) b.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("OverviewCourse.fxml"));
+        try {
+            stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
+            stage.show();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+
     }
 
 //    public void btnLogin(ActionEvent actionEvent) {
