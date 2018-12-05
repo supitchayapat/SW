@@ -1,8 +1,8 @@
-package DB;
+package main.DB;
 
-import classroot.Subject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.classroot.Subject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -91,13 +91,13 @@ public class DBSubject {
         }
     }
 
-    public void deleteDB(int date) {
+    public void deleteDB(String  courseid) {
         try {
-            System.err.println("Delete date: " + date);
+            System.err.println("Delete date: " + courseid);
             Class.forName("org.sqlite.JDBC");
             Connection connection = DriverManager.getConnection(url);
             if (connection != null) {
-                String query = "Delete from OrderList where date == \'" + date + "\' ";
+                String query = "Delete from subject  where COURSEID == \'" + courseid + "\' ";
                 PreparedStatement p = connection.prepareStatement(query);
                 p.executeUpdate();
                 connection.close();
@@ -154,43 +154,8 @@ public class DBSubject {
         return subjectDB;
 
     }
-//    public String getData(String courseid) {
-//        Connection c = null;
-//        Statement stmt = null;
-//        String ans = "";
-//        try {
-//
-//            Class.forName("org.sqlite.JDBC");
-//            c = DriverManager.getConnection("jdbc:sqlite:subjectdb.db");
-//            c.setAutoCommit(false);
-//            stmt = c.createStatement();
-//            ResultSet rs = stmt.executeQuery("SELECT * FROM SUBJECT WHERE COURSEID LIKE '%" + courseid + "%'");
-//            while (rs.next()) {
-//                String id = rs.getString("courseid");
-//                String name = rs.getString("name");
-//                String pre = rs.getString("prereq");
-//                int pass = rs.getInt("pass");
-//                String color = rs.getString("color");
-//                int year = rs.getInt("year");
-//                int sem = rs.getInt("sem");
-//                ans = "Course ID: " + id + '\n' +
-//                        "Subject Name: " + name + '\n' +
-//                        "Pre Req: " + pre + '\n' +
-//                        "Year: " + year + '\n' +
-//                        "Semester: " + sem + '\n' +
-//                        "Pass: " + pass + '\n' +
-//                        "Color: " + color + '\n';
-//            }
-//            rs.close();
-//            stmt.close();
-//            c.close();
-//        } catch (Exception e) {
-//            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-//            System.exit(0);
-//        }
-//        return ans;
 
-    public static ArrayList checkPreReqSubject(String prereq) {
+    public  ArrayList<String> checkPreReqSubject(String prereq) {
         ArrayList<String> pre = new ArrayList<String>();
         if (prereq.contains("/")) {
             String[] hold = prereq.split("/");
@@ -224,10 +189,99 @@ public class DBSubject {
         }
         return pre;
     }
+    public Integer getPass(String courseid) {
+        Connection conection = null;
+        Statement stmt = null;
+        int ans = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            conection = DriverManager.getConnection("jdbc:sqlite:SUBJECT.db");
+            conection.setAutoCommit(false);
+            stmt = conection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM subject  WHERE COURSEID = \'" + courseid + "\'");
+            while (rs.next()) {
+                int pass = rs.getInt("pass");
+                ans = pass;
+            }
+            rs.close();
+            stmt.close();
+            conection.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return ans;
+    }
+
+    public String getPreReq(String courseid) {
+        Connection c = null;
+        Statement stmt = null;
+        String ans = "";
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:subjectdb.db");
+            c.setAutoCommit(false);
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM subject WHERE COURSEID = \'" + courseid + "\'");
+            while (rs.next()) {
+                String prereq = rs.getString("prereq");
+                ans = prereq;
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return ans;
+    }
+    public Map getAllPreReq() {
+        Connection c = null;
+        Statement stmt = null;
+        Map<String, String> preReqDB = new LinkedHashMap<String, String>();
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:subjectdb.db");
+            c.setAutoCommit(false);
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM subject");
+            while (rs.next()) {
+                String courseid = rs.getString("courseid");
+                String pre = rs.getString("prereq");
+                preReqDB.put(courseid, pre);
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return preReqDB;
+    }
+    public void updateData(String id, String name, String pre, int pass, String color, int year, int sem) {
+        Connection c = null;
+        Statement stmt = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:subjectdb.db");
+            c.setAutoCommit(false);
+
+            stmt = c.createStatement();
+            String sql = "UPDATE SUBJECT set NAME= \'" + name + "\',PREREQ= \'" + pre + "\',PASS=\'" + pass + "\',COLOR= \'" + color + "\',YEAR=\'" + year + "\',SEM=\'" + sem + "\' where COURSEID=\'" + id + "\'";
+            stmt.executeUpdate(sql);
+            stmt.close();
+            c.commit();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+    }
 
     public Integer cHeckPass(String courseid) {
-//        Connection c = null;
-//        Statement stmt = null;
+
         int ans = 0;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -249,13 +303,14 @@ public class DBSubject {
         }
         return ans;
     }
+
     public void updatePass(String courseid, int pass) {
         try {
             Class.forName("org.sqlite.JDBC");
             Connection connection = DriverManager.getConnection(url);
             connection.setAutoCommit(false);
             if (connection != null) {
-            String sql = "UPDATE SUBJECT set PASSSTATUS=\'" + pass + "\' WHERE COURSEID=\'" + courseid + "\'";
+                String sql = "UPDATE subject set PASSSTATUS=\'" + pass + "\' WHERE COURSEID=\'" + courseid + "\'";
 
                 Statement statement = connection.createStatement();
                 statement.executeUpdate(sql);
@@ -269,7 +324,40 @@ public class DBSubject {
         }
     }
 
+    public ObservableList<Subject> showDBUser(int y, int s) {
+
+            Connection conection = null;
+            Statement stmt = null;
+            ObservableList<Subject> subjects = FXCollections.observableArrayList();
+            if (y > 4) {
+                y = 4;
+            }
+            try {
+                Class.forName("org.sqlite.JDBC");
+                conection = DriverManager.getConnection("jdbc:sqlite:SUBJECT.db");
+                conection.setAutoCommit(false);
+                stmt = conection.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM subject WHERE YEAR<=\'" + y + "\' AND SEM=\'" + s + "\'");
+                while (rs.next()) {
+                    String id = rs.getString("courseid");
+                    String name = rs.getString("name");
+                    String pre = rs.getString("prereq");
+                    int pass = rs.getInt("pass");
+                    String color = rs.getString("color");
+                    int year = rs.getInt("year");
+                    int sem = rs.getInt("sem");
+                    subjects.add(new Subject(id, name, pre, pass, year, sem, color));
+                }
+                rs.close();
+                stmt.close();
+                conection.close();
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                System.exit(0);
+            }
+            return subjects;
+        }
 
 
-}
+    }
 

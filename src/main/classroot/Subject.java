@@ -1,4 +1,4 @@
-package classroot;
+package main.classroot;
 
 public class Subject {
     private String COURSEID;
@@ -17,6 +17,15 @@ public class Subject {
         this.SEM = SEM;
         this.YEAR = YEAR;
 
+    }
+    public Subject(String id,String  name,String  pre,int pass,int year,int sem,String color){
+        this.COURSEID = id;
+        this.NAMECOURSE = name;
+        this.PREREQUSITE = pre;
+        this.PASSSTATUS = pass;
+        this.YEAR = year;
+        this.SEM = sem;
+        this.COLOR = color;
     }
 
     public Subject(String COURSEID, String NAMECOURSE, String PREREQUSITE, int  PASSSTATUS, int YEAR, int SEM, String COLOR,int CREDIT) {

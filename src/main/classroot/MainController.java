@@ -1,4 +1,4 @@
-package classroot;
+package main.classroot;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,8 +55,9 @@ public class MainController {
     public void setbtnTranscript(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("OverviewCourse.fxml"));
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/OverviewCourse.fxml"));
+
             stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
             stage.show();
         } catch (IOException e1) {

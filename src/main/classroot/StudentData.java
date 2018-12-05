@@ -1,4 +1,4 @@
-package classroot;
+package main.classroot;
 
 public class StudentData {
     private String id;

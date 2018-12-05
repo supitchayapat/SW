@@ -1,6 +1,5 @@
-package classroot;
+package main.classroot;
 
-import DB.DBStudent;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.DB.DBStudent;
 
 import java.io.IOException;
 

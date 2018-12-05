@@ -1,12 +1,12 @@
-package classroot;
+package main.classroot;
 
-import DB.DBStudent;
-import DB.DBSubject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import main.DB.DBStudent;
+import main.DB.DBSubject;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.util.ArrayList;
@@ -19,6 +19,8 @@ public class setCourseController {
     ObservableList<Subject> users;
     Map<String, String> sub = dbSubject.getIdSubject();
     private boolean validateSubject = false;
+    ValidateCourse validateCourse ;
+
 
     private String prere;
     @FXML
@@ -40,6 +42,7 @@ public class setCourseController {
         dbStudent.connect();
         users = dbSubject.loadDate();
 //        ObservableList<Subject> users = dbSubject.loadDate();
+        ObservableList<Subject> subjectsData = dbSubject.loadDate();
         ArrayList<String> predictSubject = new ArrayList<>(sub.keySet());
         TextFields.bindAutoCompletion(courseidsearch, predictSubject);
 
@@ -130,12 +133,7 @@ public class setCourseController {
             for (int i = 0 ; i < arraySubject.length ; i++){
                 for (int j = 0; j < users.size(); j++){
                     if (arraySubject[i].equals(users.get(j).getCOURSEID())) {
-                        statusPass = users.get(i).getPREREQUSITE();
-                        if (statusPass.equals("1")){
-                            validateSubject = true;
-                        }else if (statusPass.equals("0")){
-                            validateSubject = false;
-                        }
+                        validateSubject = validateCourse.checkValidate(arraySubject[i]);
                         persubject.add(new Subject(users.get(j).getCOURSEID(),users.get(j).getNAMECOURSE(),users.get(j).getSEM(),users.get(j).getYEAR()));
                     }
                 }
@@ -160,6 +158,7 @@ public class setCourseController {
             for (int j = 0; j < users.size();j++){
                 if (prere.equals(users.get(j).getCOURSEID())) {
                     statusPass = users.get(j).getPREREQUSITE();
+                    System.out.println(statusPass);
                     if (statusPass.equals("1")){
                         validateSubject = true;
                     }
@@ -168,6 +167,7 @@ public class setCourseController {
             }
         }
         tableVlewPre.setItems(persubject);
+        System.out.println(validateSubject);
         if (validateSubject){
             System.out.println("print");
             showStatus.setStyle("-fx-border-color: #00ff00");

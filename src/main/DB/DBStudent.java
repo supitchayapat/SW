@@ -1,9 +1,8 @@
-package DB;
+package main.DB;
 
-import classroot.StudentData;
-import classroot.Subject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.classroot.StudentData;
 
 import java.sql.*;
 
@@ -103,4 +102,51 @@ public class DBStudent {
             e.printStackTrace();
         }
     }
+    public String getId() {
+        Connection c = null;
+        Statement stmt = null;
+        String ans = "";
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:userdb.db");
+            c.setAutoCommit(false);
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Student");
+            while (rs.next()) {
+                String id = rs.getString("id");
+                ans = id;
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return ans;
+    }
+    public Integer getSem() {
+        Connection c = null;
+        Statement stmt = null;
+        int ans = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:userdb.db");
+            c.setAutoCommit(false);
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Student");
+            while (rs.next()) {
+                int sem = rs.getInt("sem");
+                ans = sem;
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        return ans;
+    }
+
 }

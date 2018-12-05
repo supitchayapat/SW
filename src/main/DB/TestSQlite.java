@@ -1,8 +1,8 @@
-package DB;
+package main.DB;
 
-import classroot.StudentData;
-import classroot.Subject;
 import javafx.collections.ObservableList;
+import main.classroot.StudentData;
+import main.classroot.Subject;
 
 public class TestSQlite {
     public static void main(String[] args) {

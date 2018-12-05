@@ -1,4 +1,4 @@
-package classroot;
+package main.classroot;
 
 import javafx.event.ActionEvent;
 

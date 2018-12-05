@@ -1,12 +1,12 @@
-package classroot;
+package main.classroot;
 
-import DB.DBStudent;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import main.DB.DBStudent;
 
 public class StudentProfileController {
     @FXML
@@ -26,7 +26,7 @@ public class StudentProfileController {
     @FXML
     Button showcourse;
 
-    ObservableList<StudentData> studentData = LoginController.stulist;
+//    ObservableList<StudentData> studentData1 = LoginController.stulist;
     String studentId;
     DBStudent dbStudent=  new DBStudent();
 
