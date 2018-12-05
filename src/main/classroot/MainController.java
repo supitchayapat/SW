@@ -1,16 +1,11 @@
 package classroot;
 
-import DB.DBStudent;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,7 +43,7 @@ public class MainController {
     public void setPreRegiserCourse(ActionEvent actionEvent) {
         Button b = (Button) actionEvent.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("registerview.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("setcourse.fxml"));
         try {
             stage.setScene(new Scene((Parent) loader.load(), 1000, 900));
             stage.show();
